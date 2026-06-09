@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>褲款 / 配件 — VOID MARKET</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Bottoms-specific: horizontal list layout option */
+    .list-view .products-grid {
+      grid-template-columns: 1fr;
+      gap: 1px;
+    }
+    .list-view .product-card {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      align-items: center;
+    }
+    .list-view .product-card__img {
+      aspect-ratio: 1;
+      height: 140px;
+    }
+    .list-view .product-card__body {
+      padding: 20px 24px;
+    }
+    .list-view .product-card__name { font-size: 15px; }
+    .list-view .product-card__actions {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .quick-add {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--acid);
+      color: var(--black);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: 2px solid var(--acid);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+    .quick-add:hover { background: transparent; color: var(--acid); }
+
+    /* View toggle */
+    .view-toggle { display: flex; gap: 4px; }
+    .view-btn {
+      width: 32px; height: 32px;
+      border: 1px solid var(--mid);
+      background: transparent;
+      color: var(--silver);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border-radius: 2px;
+      font-size: 14px;
+      transition: all .2s;
+    }
+    .view-btn.active, .view-btn:hover { border-color: var(--acid); color: var(--acid); }
+
+    /* Accessories horizontal scroll strip */
+    .acc-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      margin: 40px 0 60px;
+    }
+    .acc-card {
+      background: var(--deep);
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .acc-card:hover { opacity: 0.85; }
+    .acc-card__img {
+      aspect-ratio: 1;
+      background: var(--mid);
+      position: relative;
+    }
+    .acc-card__body { padding: 12px 14px; }
+    .acc-card__name { font-size: 12px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .acc-card__price { font-family: var(--font-mono); font-size: 12px; color: var(--acid); }
+
+    @media (max-width: 768px) {
+      .acc-strip { grid-template-columns: repeat(3, 1fr); }
+      .list-view .product-card { grid-template-columns: 100px 1fr; }
+      .list-view .product-card__actions { display: none; }
+    }
+    @media (max-width: 480px) {
+      .acc-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announce-bar">
+  <p>褲款類限時特賣 <span>·</span> Cargo 系列第二件 7 折 <span>·</span> 即日起至 8/31</p>
+</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">VOID<span>_</span>MKT</a>
+    <div class="nav__links">
+      <a href="index.html">首頁</a>
+      <a href="tops.html">上衣 / 外套</a>
+      <a href="bottoms.html" class="active">褲款 / 配件</a>
+      <a href="detail.html">商品詳情</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="nav__actions">
+      <button class="nav__btn nav__btn--ghost">搜尋</button>
+      <button class="nav__btn nav__btn--cart">購物車 <span class="cart-count">3</span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-hero" data-title="BOTTOMS">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">首頁</a>
+        <span>/</span>
+        <span class="current">褲款 / 配件</span>
+      </div>
+      <p class="page-hero__eyebrow">// Category — Bottoms & Accessories</p>
+      <h1 class="page-hero__title">褲款<br>與配件</h1>
+      <p class="page-hero__sub">Cargo、Denim、Track Pants——從腰部以下定義你的風格。</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <input type="checkbox" id="sidebar-toggle" />
+
+    <div class="shop-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <p class="sidebar__title">篩選條件 / Filters</p>
+
+        <div class="filter-group">
+          <span class="filter-group__label">商品類別</span>
+          <label class="filter-check"><input type="checkbox" checked />全部下裝<span class="filter-count">148</span></label>
+          <label class="filter-check"><input type="checkbox" />Cargo Pants<span class="filter-count">35</span></label>
+          <label class="filter-check"><input type="checkbox" />Denim / Jeans<span class="filter-count">28</span></label>
+          <label class="filter-check"><input type="checkbox" />Track Pants<span class="filter-count">22</span></label>
+          <label class="filter-check"><input type="checkbox" />Shorts<span class="filter-count">31</span></label>
+          <label class="filter-check"><input type="checkbox" />Accessories<span class="filter-count">32</span></label>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-group__label">腰圍尺寸</span>
+          <label class="filter-check"><input type="checkbox" />28"</label>
+          <label class="filter-check"><input type="checkbox" checked />30"</label>
+          <label class="filter-check"><input type="checkbox" checked />32"</label>
+          <label class="filter-check"><input type="checkbox" />34"</label>
+          <label class="filter-check"><input type="checkbox" />36"</label>
+          <label class="filter-check"><input type="checkbox" />S / M / L / XL</label>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-group__label">褲型</span>
+          <label class="filter-check"><input type="checkbox" checked />Baggy / Wide Leg</label>
+          <label class="filter-check"><input type="checkbox" />Regular Fit</label>
+          <label class="filter-check"><input type="checkbox" />Slim Fit</label>
+          <label class="filter-check"><input type="checkbox" />Tapered</label>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-group__label">材質</span>
+          <label class="filter-check"><input type="checkbox" />Cotton / 棉質</label>
+          <label class="filter-check"><input type="checkbox" checked />Nylon / 尼龍</label>
+          <label class="filter-check"><input type="checkbox" />Denim / 丹寧</label>
+          <label class="filter-check"><input type="checkbox" />Fleece / 刷毛</label>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-group__label">價格區間</span>
+          <label class="filter-check"><input type="checkbox" />NT$0 – 1,000</label>
+          <label class="filter-check"><input type="checkbox" checked />NT$1,000 – 3,000</label>
+          <label class="filter-check"><input type="checkbox" />NT$3,000 – 6,000</label>
+          <label class="filter-check"><input type="checkbox" />NT$6,000 以上</label>
+        </div>
+      </aside>
+
+      <!-- PRODUCT MAIN -->
+      <div class="shop-main">
+        <label for="sidebar-toggle" class="filter-toggle-btn">☰ 篩選條件</label>
+
+        <div class="sort-bar">
+          <span class="sort-bar__count mono">顯示 <strong style="color:var(--white)">148</strong> 件商品</span>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="view-toggle">
+              <button class="view-btn active" title="格狀">⊞</button>
+              <button class="view-btn" title="列表">≡</button>
+            </div>
+            <select class="sort-bar__select">
+              <option>排序：推薦商品</option>
+              <option>價格：由低至高</option>
+              <option>價格：由高至低</option>
+              <option>最新上架</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Sub-nav -->
+        <div style="display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;">
+          <span class="tag tag--acid">全部</span>
+          <span class="tag">Cargo</span>
+          <span class="tag">Denim</span>
+          <span class="tag">Track Pants</span>
+          <span class="tag">Shorts</span>
+        </div>
+
+        <!-- Bottoms grid — 3 col balanced layout -->
+        <div class="products-grid products-grid--3">
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--sale">-30%</span>
+            <div class="product-card__img bg-3">
+              <div class="img-placeholder">CARGO PANTS<br>6-POCKET</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">六口袋 Baggy Cargo Pants</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$2,380</span>
+                <span class="product-card__original">NT$3,380</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--new">New</span>
+            <div class="product-card__img bg-5">
+              <div class="img-placeholder">BAGGY DENIM</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Loose Fit 水洗直筒丹寧</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$3,280</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <div class="product-card__img bg-7">
+              <div class="img-placeholder">TRACK PANTS</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Zip-Side Track Pants 運動長褲</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$2,180</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--ltd">限量</span>
+            <div class="product-card__img bg-1">
+              <div class="img-placeholder">NYLON SHORTS</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Parachute Nylon 短褲</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$1,780</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--sale">-25%</span>
+            <div class="product-card__img bg-4">
+              <div class="img-placeholder">WIDE CHINO</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Wide-Leg Chino 闊腿休閒褲</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$1,990</span>
+                <span class="product-card__original">NT$2,680</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <div class="product-card__img bg-8">
+              <div class="img-placeholder">SWEAT SHORTS</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">French Terry 重磅短褲</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$1,280</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Accessories section -->
+        <div style="margin-top:56px;">
+          <div class="section-header">
+            <div class="section-header__left">
+              <span class="section-num mono">[ACC]</span>
+              <h2 class="section-title">配件精選</h2>
+            </div>
+            <a href="#" class="section-link">查看全部 →</a>
+          </div>
+
+          <div class="acc-strip">
+            <a href="detail.html" class="acc-card">
+              <div class="acc-card__img bg-2">
+                <div class="img-placeholder" style="font-size:10px;">BUCKET HAT</div>
+              </div>
+              <div class="acc-card__body">
+                <p class="acc-card__name">Ripstop 漁夫帽</p>
+                <p class="acc-card__price">NT$880</p>
+              </div>
+            </a>
+            <a href="detail.html" class="acc-card">
+              <div class="acc-card__img bg-6" style="position:relative;">
+                <span style="position:absolute;top:6px;left:6px;background:var(--burn);color:#fff;font-family:var(--font-mono);font-size:9px;padding:2px 6px;border-radius:2px;">-25%</span>
+                <div class="img-placeholder" style="font-size:10px;">SNAPBACK</div>
+              </div>
+              <div class="acc-card__body">
+                <p class="acc-card__name">Logo Snapback 棒球帽</p>
+                <p class="acc-card__price">NT$680</p>
+              </div>
+            </a>
+            <a href="detail.html" class="acc-card">
+              <div class="acc-card__img bg-3">
+                <div class="img-placeholder" style="font-size:10px;">CROSSBODY</div>
+              </div>
+              <div class="acc-card__body">
+                <p class="acc-card__name">Nylon 斜背包</p>
+                <p class="acc-card__price">NT$1,480</p>
+              </div>
+            </a>
+            <a href="detail.html" class="acc-card">
+              <div class="acc-card__img bg-7">
+                <div class="img-placeholder" style="font-size:10px;">TOTE BAG</div>
+              </div>
+              <div class="acc-card__body">
+                <p class="acc-card__name">Canvas Tote 帆布袋</p>
+                <p class="acc-card__price">NT$680</p>
+              </div>
+            </a>
+            <a href="detail.html" class="acc-card">
+              <div class="acc-card__img bg-5">
+                <span style="position:absolute;top:6px;left:6px;background:var(--acid);color:var(--black);font-family:var(--font-mono);font-size:9px;padding:2px 6px;border-radius:2px;">New</span>
+                <div class="img-placeholder" style="font-size:10px;">SOCKS SET</div>
+              </div>
+              <div class="acc-card__body">
+                <p class="acc-card__name">Mid-Cut 運動襪 3件組</p>
+                <p class="acc-card__price">NT$420</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /shop-main -->
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="logo">VOID<span>_</span>MKT</p>
+          <p>來自台灣的獨立潮流選品店，精選全球街頭品牌與自家設計。每一件單品都經過嚴選，只給懂的人。</p>
+        </div>
+        <div class="footer__col"><h4>選購</h4><ul><li><a href="tops.html">上衣與外套</a></li><li><a href="bottoms.html">褲款與配件</a></li><li><a href="#">新品到貨</a></li><li><a href="#">折扣商品</a></li></ul></div>
+        <div class="footer__col"><h4>關於我們</h4><ul><li><a href="#">品牌故事</a></li><li><a href="#">聯名合作</a></li><li><a href="#">門市資訊</a></li><li><a href="#">招募夥伴</a></li></ul></div>
+        <div class="footer__col"><h4>服務支援</h4><ul><li><a href="faq.html">常見問題</a></li><li><a href="faq.html">退換貨政策</a></li><li><a href="#">配送資訊</a></li><li><a href="#">聯絡我們</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 VOID MARKET. All rights reserved.</p>
+        <div class="footer__social"><a href="#">IG</a><a href="#">FB</a><a href="#">LINE</a><a href="#">Threads</a></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

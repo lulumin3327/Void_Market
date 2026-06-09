@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>品牌故事 — VOID MARKET</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* About page specific */
+    .about-hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+
+    .about-hero__bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(120px, 20vw, 240px);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.018);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .about-hero__content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-hero__year {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acid);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .about-hero__year::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--acid);
+    }
+
+    .about-hero__title {
+      font-size: clamp(48px, 9vw, 100px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      line-height: 0.9;
+      margin-bottom: 32px;
+    }
+
+    .about-hero__title em {
+      font-style: normal;
+      -webkit-text-stroke: 1px var(--white);
+      color: transparent;
+    }
+
+    .about-hero__lead {
+      font-size: clamp(16px, 2vw, 22px);
+      color: var(--silver);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .about-hero__lead strong { color: var(--white); font-weight: 600; }
+
+    /* Divider line */
+    .acid-rule {
+      height: 2px;
+      background: linear-gradient(to right, var(--acid), transparent);
+      margin: 0;
+    }
+
+    /* Manifesto section */
+    .manifesto {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--deep);
+    }
+
+    .manifesto__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .manifesto__num {
+      font-family: var(--font-mono);
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--deep);
+      line-height: 1;
+      margin-bottom: -20px;
+      user-select: none;
+    }
+
+    .manifesto__title {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      line-height: 1.05;
+    }
+
+    .manifesto__text {
+      font-size: 15px;
+      color: var(--silver);
+      line-height: 1.8;
+    }
+
+    .manifesto__text p + p { margin-top: 12px; }
+
+    .manifesto__img {
+      aspect-ratio: 4/3;
+      background: var(--deep);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .manifesto__img-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--steel);
+      text-transform: uppercase;
+    }
+
+    .manifesto__img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--mid);
+      pointer-events: none;
+    }
+
+    /* Values grid */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin: 60px 0;
+    }
+
+    .value-card {
+      background: var(--deep);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--acid);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .value-card:hover::before { opacity: 1; }
+
+    .value-card__icon {
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .value-card__title {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .value-card__text {
+      font-size: 13px;
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    /* Timeline */
+    .timeline {
+      padding: 60px 0;
+      border-top: 1px solid var(--deep);
+    }
+
+    .timeline__items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline__item {
+      display: grid;
+      grid-template-columns: 120px 1px 1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--deep);
+    }
+
+    .timeline__year {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--acid);
+      text-align: right;
+      padding-top: 4px;
+    }
+
+    .timeline__line {
+      background: var(--mid);
+      align-self: stretch;
+      position: relative;
+    }
+
+    .timeline__line::before {
+      content: '';
+      position: absolute;
+      top: 8px; left: 50%;
+      transform: translateX(-50%);
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--acid);
+      border: 2px solid var(--black);
+    }
+
+    .timeline__content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline__content p {
+      font-size: 13px;
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    /* Team */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .team-card { background: var(--deep); overflow: hidden; }
+
+    .team-card__img {
+      aspect-ratio: 3/4;
+      background: var(--mid);
+      position: relative;
+    }
+
+    .team-card__body { padding: 16px; }
+
+    .team-card__name {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+    }
+
+    .team-card__role {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--acid);
+    }
+
+    /* CTA banner */
+    .about-cta {
+      background: var(--acid);
+      padding: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin: 60px 0;
+    }
+
+    .about-cta h2 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 0.95;
+    }
+
+    .about-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--black);
+      color: var(--acid);
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      border: 2px solid var(--black);
+      white-space: nowrap;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+    .about-cta a:hover { background: transparent; color: var(--black); border-color: var(--black); }
+
+    @media (max-width: 768px) {
+      .manifesto__grid { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-cta { flex-direction: column; text-align: center; padding: 40px 24px; }
+      .timeline__item { grid-template-columns: 80px 1px 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announce-bar">
+  <p>VOID MARKET × STUDIO 93 聯名系列 <span>·</span> 8 月 15 日限量發售 <span>·</span> <a href="tops.html" style="color:var(--white);border-bottom:1px solid rgba(255,255,255,0.4);">預先了解</a></p>
+</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">VOID<span>_</span>MKT</a>
+    <div class="nav__links">
+      <a href="index.html">首頁</a>
+      <a href="tops.html">上衣 / 外套</a>
+      <a href="bottoms.html">褲款 / 配件</a>
+      <a href="detail.html">商品詳情</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="nav__actions">
+      <button class="nav__btn nav__btn--ghost">搜尋</button>
+      <button class="nav__btn nav__btn--cart">購物車 <span class="cart-count">3</span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="about-hero__bg-text">VOID</div>
+    <div class="container">
+      <div class="about-hero__content">
+        <p class="about-hero__year">Est. 2019 — Taipei, Taiwan</p>
+        <h1 class="about-hero__title">
+          We Are<br>
+          <em>The Void</em>
+        </h1>
+        <p class="about-hero__lead">
+          VOID MARKET 是一間誕生於台北的獨立選品店。我們不追逐潮流，<strong>我們製造它</strong>。每件單品背後都是一個立場，一種對街頭文化的真誠回應。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="acid-rule"></div>
+
+  <!-- MANIFESTO -->
+  <div class="container">
+    <div class="manifesto">
+      <div class="manifesto__grid">
+        <div>
+          <div class="manifesto__num">01</div>
+          <h2 class="manifesto__title">選品不是販售，<br>是一種態度</h2>
+          <div class="manifesto__text">
+            <p>VOID MARKET 從不隨機進貨。每一件商品都是我們深入品牌文化後，確信它值得被帶到台灣的抉擇。我們的倉庫從來不滿，因為我們只留下真正好的東西。</p>
+            <p>我們相信穿著是一種語言，而每一件我們精選的單品，都是一個字、一個句子、一個宣言。</p>
+          </div>
+        </div>
+        <div class="manifesto__img bg-dark">
+          <div class="manifesto__img-inner">BRAND PHOTO 01</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALUES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header__left">
+          <span class="section-num mono">[核心]</span>
+          <h2 class="section-title">我們的原則</h2>
+        </div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-card__icon">◈</div>
+          <h3 class="value-card__title">嚴選 Curation</h3>
+          <p class="value-card__text">只選我們真正相信的品牌與單品。每季新品不超過 30 個 SKU，寧缺毋濫是我們不會改變的準則。</p>
+        </div>
+        <div class="value-card">
+          <div class="value-card__icon">⊕</div>
+          <h3 class="value-card__title">真實 Authenticity</h3>
+          <p class="value-card__text">所有商品 100% 原廠正品，全程可追溯進貨記錄。我們從不碰複製品，也不妥協。</p>
+        </div>
+        <div class="value-card">
+          <div class="value-card__icon">△</div>
+          <h3 class="value-card__title">社群 Community</h3>
+          <p class="value-card__text">VOID MARKET 不只是一間店，是一個聚集地。定期舉辦 Drop 活動、品牌分享會與街頭攝影展。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline">
+      <div class="section-header" style="margin-bottom:40px;">
+        <div class="section-header__left">
+          <span class="section-num mono">[歷史]</span>
+          <h2 class="section-title">品牌歷程</h2>
+        </div>
+      </div>
+      <div class="timeline__items">
+        <div class="timeline__item">
+          <div class="timeline__year">2019</div>
+          <div class="timeline__line"></div>
+          <div class="timeline__content">
+            <h3>VOID MARKET 成立</h3>
+            <p>創辦人 Marcus 與 Yuki 在台北大安區開設第一間實體店，面積僅 20 坪，但每週的 Drop 活動在網路上引發熱烈討論。</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__year">2020</div>
+          <div class="timeline__line"></div>
+          <div class="timeline__content">
+            <h3>線上商城正式上線</h3>
+            <p>因應疫情，將選品體驗搬至線上。首月即突破 1,000 筆訂單，成為台灣獨立選品電商的代表之一。</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__year">2022</div>
+          <div class="timeline__line"></div>
+          <div class="timeline__content">
+            <h3>首個自有系列 VOID ORIGINALS</h3>
+            <p>推出首季自製商品，以台灣夜市、廢墟與霓虹燈為靈感，系列在 24 小時內完售，確立品牌獨特的視覺語言。</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__year">2024</div>
+          <div class="timeline__line"></div>
+          <div class="timeline__content">
+            <h3>松山文創園區快閃店</h3>
+            <p>為期一個月的大型快閃展，結合街頭攝影展、DJ 演出與限定商品，吸引超過 5,000 人次入場。</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__year">2025</div>
+          <div class="timeline__line"></div>
+          <div class="timeline__content">
+            <h3>VOID MARKET × STUDIO 93 聯名</h3>
+            <p>與香港新銳設計工作室 STUDIO 93 推出聯名系列，8 月 15 日正式發售，為雙方創作生涯重要里程碑。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header__left">
+          <span class="section-num mono">[團隊]</span>
+          <h2 class="section-title">核心成員</h2>
+        </div>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-card__img bg-3">
+            <div class="img-placeholder">Marcus</div>
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Marcus Chen</p>
+            <p class="team-card__role">Co-Founder / Creative Director</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img bg-5">
+            <div class="img-placeholder">Yuki</div>
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Yuki Lin</p>
+            <p class="team-card__role">Co-Founder / Brand Strategy</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img bg-7">
+            <div class="img-placeholder">Jay</div>
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Jay Wu</p>
+            <p class="team-card__role">Head of Product / Buyer</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img bg-2">
+            <div class="img-placeholder">Nina</div>
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Nina Kao</p>
+            <p class="team-card__role">Visual Design / Photography</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="about-cta">
+      <h2>開始選購<br>你的風格</h2>
+      <a href="tops.html">進入商店 →</a>
+    </div>
+
+  </div><!-- /container -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="logo">VOID<span>_</span>MKT</p>
+          <p>來自台灣的獨立潮流選品店，精選全球街頭品牌與自家設計。每一件單品都經過嚴選，只給懂的人。</p>
+        </div>
+        <div class="footer__col"><h4>選購</h4><ul><li><a href="tops.html">上衣與外套</a></li><li><a href="bottoms.html">褲款與配件</a></li><li><a href="#">新品到貨</a></li><li><a href="#">折扣商品</a></li></ul></div>
+        <div class="footer__col"><h4>關於我們</h4><ul><li><a href="about.html">品牌故事</a></li><li><a href="#">聯名合作</a></li><li><a href="#">門市資訊</a></li><li><a href="#">招募夥伴</a></li></ul></div>
+        <div class="footer__col"><h4>服務支援</h4><ul><li><a href="faq.html">常見問題</a></li><li><a href="faq.html">退換貨政策</a></li><li><a href="#">配送資訊</a></li><li><a href="#">聯絡我們</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 VOID MARKET. All rights reserved.</p>
+        <div class="footer__social"><a href="#">IG</a><a href="#">FB</a><a href="#">LINE</a><a href="#">Threads</a></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

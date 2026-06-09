@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Ripstop 工裝外套 — VOID MARKET</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Detail-page extras */
+    .detail-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .detail-desc {
+      font-size: 14px;
+      color: var(--silver);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--deep);
+    }
+
+    .detail-desc p + p { margin-top: 10px; }
+
+    .detail-feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--deep);
+    }
+
+    .detail-feature-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--silver);
+    }
+
+    .detail-feature-list li::before {
+      content: '—';
+      color: var(--acid);
+      font-family: var(--font-mono);
+      flex-shrink: 0;
+    }
+
+    .stock-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .stock-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--acid);
+      flex-shrink: 0;
+    }
+    .stock-dot.low { background: var(--burn); }
+    .stock-text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--deep);
+    }
+
+    .trust-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 8px;
+      background: var(--deep);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .trust-badge__icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .trust-badge__text {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--silver);
+      line-height: 1.4;
+    }
+
+    /* Related section */
+    .related-section {
+      padding: 60px 0 80px;
+      border-top: 1px solid var(--deep);
+    }
+
+    /* Tabs */
+    .detail-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--deep);
+      margin-bottom: 24px;
+    }
+
+    .detail-tab {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel);
+      padding: 12px 20px;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .detail-tab.active {
+      color: var(--white);
+      border-bottom-color: var(--acid);
+    }
+
+    /* Img placeholder with detail look */
+    .detail-main-img .img-placeholder {
+      font-size: 14px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Big thumb */
+    .detail-thumb .img-placeholder { font-size: 9px; }
+  </style>
+</head>
+<body>
+
+<div class="announce-bar">
+  <p>此商品符合夏季折扣 <span>·</span> 結帳輸入 <strong>VOID10</strong> 再折 10% <span>·</span> 限時 48 小時</p>
+</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">VOID<span>_</span>MKT</a>
+    <div class="nav__links">
+      <a href="index.html">首頁</a>
+      <a href="tops.html">上衣 / 外套</a>
+      <a href="bottoms.html">褲款 / 配件</a>
+      <a href="detail.html" class="active">商品詳情</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="nav__actions">
+      <button class="nav__btn nav__btn--ghost">搜尋</button>
+      <button class="nav__btn nav__btn--cart">購物車 <span class="cart-count">3</span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb" style="padding:20px 0 0;">
+      <a href="index.html">首頁</a>
+      <span>/</span>
+      <a href="tops.html">上衣 / 外套</a>
+      <span>/</span>
+      <span class="current">Technical Ripstop 工裝外套</span>
+    </div>
+
+    <!-- DETAIL LAYOUT -->
+    <div class="detail-layout">
+
+      <!-- LEFT: Gallery -->
+      <div class="detail-gallery">
+        <div class="detail-thumbs">
+          <div class="detail-thumb active bg-dark">
+            <div class="img-placeholder">1</div>
+          </div>
+          <div class="detail-thumb bg-2">
+            <div class="img-placeholder">2</div>
+          </div>
+          <div class="detail-thumb bg-3">
+            <div class="img-placeholder">3</div>
+          </div>
+          <div class="detail-thumb bg-4">
+            <div class="img-placeholder">4</div>
+          </div>
+        </div>
+        <div class="detail-main-img bg-dark">
+          <div class="img-placeholder" style="font-size:16px;letter-spacing:0.04em;text-transform:uppercase;color:var(--mid);">
+            Technical<br>Ripstop<br>工裝外套
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="detail-info">
+        <div class="detail-tags">
+          <span class="tag tag--burn">夏季特賣 -40%</span>
+          <span class="tag tag--acid">Limited Stock</span>
+          <span class="tag">Outerwear</span>
+        </div>
+
+        <p class="detail-info__brand">VOID MARKET — Outerwear Division</p>
+        <h1 class="detail-info__name">Technical<br>Ripstop<br>工裝外套</h1>
+
+        <div class="detail-info__price-row">
+          <span class="detail-price">NT$4,280</span>
+          <span class="detail-original">NT$7,180</span>
+          <span class="detail-badge">-40%</span>
+        </div>
+
+        <!-- Color -->
+        <p class="option-label">顏色 — <span class="val">Black</span></p>
+        <div class="color-swatches">
+          <div class="swatch swatch--black active" title="Black"></div>
+          <div class="swatch swatch--olive" title="Olive"></div>
+          <div class="swatch swatch--stone" title="Stone"></div>
+        </div>
+
+        <!-- Size -->
+        <p class="option-label">尺寸 — <span class="val">M</span> &nbsp;<a href="#size-table" style="color:var(--acid);font-size:10px;border-bottom:1px solid rgba(202,255,0,0.4);padding-bottom:1px;">尺寸對照表 ↓</a></p>
+        <div class="size-grid">
+          <button class="size-btn sold-out">XS</button>
+          <button class="size-btn">S</button>
+          <button class="size-btn active">M</button>
+          <button class="size-btn">L</button>
+          <button class="size-btn">XL</button>
+          <button class="size-btn sold-out">XXL</button>
+        </div>
+
+        <!-- Stock -->
+        <div class="stock-indicator">
+          <span class="stock-dot low"></span>
+          <span class="stock-text">庫存緊張 — 僅剩 <strong style="color:var(--burn)">4 件</strong></span>
+        </div>
+
+        <!-- CTA -->
+        <button class="add-to-cart">
+          ＋ 加入購物車
+        </button>
+        <button class="wishlist-btn">
+          ♡ 加入收藏清單
+        </button>
+
+        <!-- Trust badges -->
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <span class="trust-badge__icon">↩</span>
+            <span class="trust-badge__text">14天<br>免費退換</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-badge__icon">✓</span>
+            <span class="trust-badge__text">100%<br>正品保證</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-badge__icon">⚡</span>
+            <span class="trust-badge__text">48H<br>極速出貨</span>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--deep);">
+          <div class="detail-tabs">
+            <span class="detail-tab active">商品描述</span>
+            <span class="detail-tab">商品規格</span>
+            <span class="detail-tab">品牌故事</span>
+          </div>
+
+          <div class="detail-desc">
+            <p>以軍事機能美學為靈感，採用日本進口 Ripstop 防撕裂尼龍面料製成。大廓形剪裁兼顧街頭感與實穿性，前後共 8 個機能口袋設計，讓日常與出遊都能從容應對。</p>
+            <p>特別採用 YKK 拉鏈與加固縫線工藝，耐穿度提升 40%，是 VOID MARKET 本季最受歡迎的主力外套。</p>
+          </div>
+
+          <ul class="detail-feature-list">
+            <li>面料：100% Nylon Ripstop（防撕裂尼龍）</li>
+            <li>版型：Oversized — 建議選擇平常尺寸或小一號</li>
+            <li>口袋：前胸 2 個、腰部 4 個、內裡 2 個</li>
+            <li>拉鏈：YKK 主拉鏈、左胸隱藏磁扣設計</li>
+            <li>洗滌：機洗 30°C、反面洗滌</li>
+            <li>產地：Made in Taiwan</li>
+          </ul>
+        </div>
+
+        <!-- SIZE TABLE -->
+        <div class="size-table-wrap" id="size-table">
+          <h3>尺寸對照表 <span>單位：cm</span></h3>
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>尺寸</th>
+                <th>肩寬</th>
+                <th>胸圍</th>
+                <th>衣長</th>
+                <th>袖長</th>
+                <th>建議身高</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>XS</td>
+                <td>44</td>
+                <td>102</td>
+                <td>68</td>
+                <td>60</td>
+                <td>155–163</td>
+              </tr>
+              <tr>
+                <td>S</td>
+                <td>46</td>
+                <td>108</td>
+                <td>70</td>
+                <td>61</td>
+                <td>163–170</td>
+              </tr>
+              <tr style="background:rgba(202,255,0,0.04);outline:1px solid rgba(202,255,0,0.2);">
+                <td style="color:var(--acid);">M ★</td>
+                <td>48</td>
+                <td>114</td>
+                <td>72</td>
+                <td>62</td>
+                <td>170–177</td>
+              </tr>
+              <tr>
+                <td>L</td>
+                <td>50</td>
+                <td>120</td>
+                <td>74</td>
+                <td>63</td>
+                <td>177–183</td>
+              </tr>
+              <tr>
+                <td>XL</td>
+                <td>52</td>
+                <td>128</td>
+                <td>76</td>
+                <td>64</td>
+                <td>183–190</td>
+              </tr>
+              <tr>
+                <td>XXL</td>
+                <td>54</td>
+                <td>136</td>
+                <td>78</td>
+                <td>65</td>
+                <td>190+</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top:12px;font-family:var(--font-mono);font-size:10px;color:var(--steel);letter-spacing:0.08em;">★ 目前選取尺寸 &nbsp;/&nbsp; 手工測量，誤差 ±1–2cm 為正常範圍</p>
+        </div>
+
+      </div><!-- /detail-info -->
+    </div><!-- /detail-layout -->
+
+    <!-- RELATED PRODUCTS -->
+    <div class="related-section">
+      <div class="section-header">
+        <div class="section-header__left">
+          <span class="section-num mono">[相關]</span>
+          <h2 class="section-title">你可能也喜歡</h2>
+        </div>
+        <a href="tops.html" class="section-link">查看更多外套 →</a>
+      </div>
+      <div class="products-grid">
+        <a href="detail.html" class="product-card">
+          <span class="product-card__badge badge--new">New</span>
+          <div class="product-card__img bg-6"><div class="img-placeholder">RACING JACKET</div></div>
+          <div class="product-card__hover"></div>
+          <div class="product-card__body">
+            <span class="product-card__brand">VOID MARKET</span>
+            <span class="product-card__name">Racing Club 風衣夾克</span>
+            <div class="product-card__price-row"><span class="product-card__price">NT$5,480</span></div>
+          </div>
+        </a>
+        <a href="detail.html" class="product-card">
+          <span class="product-card__badge badge--sale">-35%</span>
+          <div class="product-card__img bg-2"><div class="img-placeholder">BOMBER</div></div>
+          <div class="product-card__hover"></div>
+          <div class="product-card__body">
+            <span class="product-card__brand">VOID MARKET</span>
+            <span class="product-card__name">Satin Bomber 緞面飛行夾克</span>
+            <div class="product-card__price-row">
+              <span class="product-card__price">NT$3,250</span>
+              <span class="product-card__original">NT$5,000</span>
+            </div>
+          </div>
+        </a>
+        <a href="detail.html" class="product-card">
+          <div class="product-card__img bg-4"><div class="img-placeholder">COACH JACKET</div></div>
+          <div class="product-card__hover"></div>
+          <div class="product-card__body">
+            <span class="product-card__brand">VOID MARKET</span>
+            <span class="product-card__name">80s Coach Jacket</span>
+            <div class="product-card__price-row"><span class="product-card__price">NT$3,880</span></div>
+          </div>
+        </a>
+        <a href="detail.html" class="product-card">
+          <span class="product-card__badge badge--ltd">限量</span>
+          <div class="product-card__img bg-7"><div class="img-placeholder">PUFFER VEST</div></div>
+          <div class="product-card__hover"></div>
+          <div class="product-card__body">
+            <span class="product-card__brand">VOID MARKET</span>
+            <span class="product-card__name">Puffer Vest 拼色鋪棉背心</span>
+            <div class="product-card__price-row"><span class="product-card__price">NT$2,980</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="logo">VOID<span>_</span>MKT</p>
+          <p>來自台灣的獨立潮流選品店，精選全球街頭品牌與自家設計。每一件單品都經過嚴選，只給懂的人。</p>
+        </div>
+        <div class="footer__col"><h4>選購</h4><ul><li><a href="tops.html">上衣與外套</a></li><li><a href="bottoms.html">褲款與配件</a></li><li><a href="#">新品到貨</a></li><li><a href="#">折扣商品</a></li></ul></div>
+        <div class="footer__col"><h4>關於我們</h4><ul><li><a href="#">品牌故事</a></li><li><a href="#">聯名合作</a></li><li><a href="#">門市資訊</a></li><li><a href="#">招募夥伴</a></li></ul></div>
+        <div class="footer__col"><h4>服務支援</h4><ul><li><a href="faq.html">常見問題</a></li><li><a href="faq.html">退換貨政策</a></li><li><a href="#">配送資訊</a></li><li><a href="#">聯絡我們</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 VOID MARKET. All rights reserved.</p>
+        <div class="footer__social"><a href="#">IG</a><a href="#">FB</a><a href="#">LINE</a><a href="#">Threads</a></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

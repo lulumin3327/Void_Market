@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>上衣 / 外套 — VOID MARKET</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── ANNOUNCE BAR ── -->
+<div class="announce-bar">
+  <p>夏季折扣季 <span>·</span> 上衣類全館 85 折 <span>·</span> 折扣碼：<strong>SUMMER25</strong></p>
+</div>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">VOID<span>_</span>MKT</a>
+    <div class="nav__links">
+      <a href="index.html">首頁</a>
+      <a href="tops.html" class="active">上衣 / 外套</a>
+      <a href="bottoms.html">褲款 / 配件</a>
+      <a href="detail.html">商品詳情</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="nav__actions">
+      <button class="nav__btn nav__btn--ghost">搜尋</button>
+      <button class="nav__btn nav__btn--cart">購物車 <span class="cart-count">3</span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero" data-title="TOPS">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">首頁</a>
+        <span>/</span>
+        <span class="current">上衣 / 外套</span>
+      </div>
+      <p class="page-hero__eyebrow">// Category — Tops & Outerwear</p>
+      <h1 class="page-hero__title">上衣<br>與外套</h1>
+      <p class="page-hero__sub">從街頭 Tee 到工裝外套，每件都是身份宣言。</p>
+    </div>
+  </div>
+
+  <!-- ── SHOP LAYOUT ── -->
+  <div class="container">
+
+    <!-- Mobile filter toggle using CSS checkbox trick -->
+    <input type="checkbox" id="sidebar-toggle" />
+
+    <div class="shop-layout">
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="sidebar">
+        <p class="sidebar__title">篩選條件 / Filters</p>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <span class="filter-group__label">商品類別</span>
+          <label class="filter-check">
+            <input type="checkbox" checked />
+            全部上衣
+            <span class="filter-count">161</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" />
+            T-Shirts
+            <span class="filter-count">42</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" />
+            Hoodies / Sweatshirts
+            <span class="filter-count">28</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" />
+            Jackets / Outerwear
+            <span class="filter-count">35</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" />
+            Long Sleeves
+            <span class="filter-count">22</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" />
+            Shirts
+            <span class="filter-count">34</span>
+          </label>
+        </div>
+
+        <!-- Size -->
+        <div class="filter-group">
+          <span class="filter-group__label">尺寸</span>
+          <label class="filter-check"><input type="checkbox" />XS</label>
+          <label class="filter-check"><input type="checkbox" checked />S</label>
+          <label class="filter-check"><input type="checkbox" checked />M</label>
+          <label class="filter-check"><input type="checkbox" />L</label>
+          <label class="filter-check"><input type="checkbox" />XL</label>
+          <label class="filter-check"><input type="checkbox" />XXL</label>
+        </div>
+
+        <!-- Price -->
+        <div class="filter-group">
+          <span class="filter-group__label">價格區間</span>
+          <label class="filter-check"><input type="checkbox" />NT$0 – 1,000</label>
+          <label class="filter-check"><input type="checkbox" checked />NT$1,000 – 3,000</label>
+          <label class="filter-check"><input type="checkbox" />NT$3,000 – 6,000</label>
+          <label class="filter-check"><input type="checkbox" />NT$6,000 以上</label>
+        </div>
+
+        <!-- Color -->
+        <div class="filter-group">
+          <span class="filter-group__label">顏色</span>
+          <label class="filter-check"><input type="checkbox" checked />黑色 Black</label>
+          <label class="filter-check"><input type="checkbox" />白色 White</label>
+          <label class="filter-check"><input type="checkbox" />灰色 Grey</label>
+          <label class="filter-check"><input type="checkbox" />橄欖色 Olive</label>
+          <label class="filter-check"><input type="checkbox" />米色 Stone</label>
+          <label class="filter-check"><input type="checkbox" />螢光 Neon</label>
+        </div>
+
+        <!-- Status -->
+        <div class="filter-group">
+          <span class="filter-group__label">商品狀態</span>
+          <label class="filter-check"><input type="checkbox" />特價商品</label>
+          <label class="filter-check"><input type="checkbox" />本週新品</label>
+          <label class="filter-check"><input type="checkbox" />限量商品</label>
+        </div>
+      </aside>
+
+      <!-- ── PRODUCT MAIN ── -->
+      <div class="shop-main">
+
+        <!-- Mobile filter button -->
+        <label for="sidebar-toggle" class="filter-toggle-btn">
+          ☰ 篩選條件
+        </label>
+
+        <!-- Sort bar -->
+        <div class="sort-bar">
+          <span class="sort-bar__count mono">顯示 <strong style="color:var(--white)">161</strong> 件商品</span>
+          <select class="sort-bar__select">
+            <option>排序：推薦商品</option>
+            <option>價格：由低至高</option>
+            <option>價格：由高至低</option>
+            <option>最新上架</option>
+            <option>熱銷排行</option>
+          </select>
+        </div>
+
+        <!-- Sub-nav tabs -->
+        <div style="display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;">
+          <span class="tag tag--acid">全部</span>
+          <span class="tag">T-Shirts</span>
+          <span class="tag">Hoodies</span>
+          <span class="tag">Jackets</span>
+          <span class="tag">Shirts</span>
+          <span class="tag">Long Sleeves</span>
+        </div>
+
+        <!-- Products: Asymmetric grid -->
+        <div class="products-grid">
+
+          <a href="detail.html" class="product-card product-card--large">
+            <span class="product-card__badge badge--sale">-40%</span>
+            <div class="product-card__img bg-dark">
+              <div class="img-placeholder">TECHNICAL JACKET<br>OVERSIZED FIT</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Technical Ripstop 工裝外套 — 大廓形</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$4,280</span>
+                <span class="product-card__original">NT$7,180</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--new">New</span>
+            <div class="product-card__img bg-2">
+              <div class="img-placeholder">GRAPHIC TEE</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Glitch Print 重磅 T-Shirt</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$980</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <div class="product-card__img bg-3">
+              <div class="img-placeholder">HALF-ZIP FLEECE</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Half-Zip Fleece 刷毛上衣</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$2,180</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--sale">-30%</span>
+            <div class="product-card__img bg-6">
+              <div class="img-placeholder">RACING JACKET</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Racing Club 賽車風衣</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$3,850</span>
+                <span class="product-card__original">NT$5,500</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <div class="product-card__img bg-4">
+              <div class="img-placeholder">COACH JACKET</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">80s Coach Jacket</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$3,880</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--ltd">限量</span>
+            <div class="product-card__img bg-7">
+              <div class="img-placeholder">PUFFER VEST</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Puffer Vest 拼色鋪棉背心</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$2,980</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <div class="product-card__img bg-1">
+              <div class="img-placeholder">LOOSE SHIRT</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Open-Collar 寬鬆短袖襯衫</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$1,480</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--sale">-20%</span>
+            <div class="product-card__img bg-8">
+              <div class="img-placeholder">CREWNECK SWEAT</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Heavy Crewneck Sweatshirt</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$1,760</span>
+                <span class="product-card__original">NT$2,200</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Second large card -->
+          <a href="detail.html" class="product-card product-card--large">
+            <span class="product-card__badge badge--new">New</span>
+            <div class="product-card__img" style="background:#141a14;">
+              <div class="img-placeholder">DENIM JACKET<br>WASHED OLIVE</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Washed Denim Trucker 牛仔外套</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$3,680</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <div class="product-card__img bg-5">
+              <div class="img-placeholder">POLO SHIRT</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Pique Polo 復古短袖</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$1,280</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="detail.html" class="product-card">
+            <span class="product-card__badge badge--sale">-35%</span>
+            <div class="product-card__img bg-2">
+              <div class="img-placeholder">BOMBER</div>
+            </div>
+            <div class="product-card__hover"></div>
+            <div class="product-card__body">
+              <span class="product-card__brand">VOID MARKET</span>
+              <span class="product-card__name">Satin Bomber 緞面飛行夾克</span>
+              <div class="product-card__price-row">
+                <span class="product-card__price">NT$3,250</span>
+                <span class="product-card__original">NT$5,000</span>
+              </div>
+            </div>
+          </a>
+
+        </div><!-- /products-grid -->
+
+        <!-- Pagination -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:48px;padding-top:32px;border-top:1px solid var(--deep);">
+          <span style="font-family:var(--font-mono);font-size:12px;color:var(--steel);margin-right:8px;">頁碼</span>
+          <a href="#" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--acid);color:var(--black);font-family:var(--font-mono);font-size:12px;font-weight:700;border-radius:2px;">1</a>
+          <a href="#" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--mid);color:var(--silver);font-family:var(--font-mono);font-size:12px;border-radius:2px;transition:all .2s;">2</a>
+          <a href="#" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--mid);color:var(--silver);font-family:var(--font-mono);font-size:12px;border-radius:2px;transition:all .2s;">3</a>
+          <span style="color:var(--steel);font-family:var(--font-mono);font-size:12px;">…</span>
+          <a href="#" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--mid);color:var(--silver);font-family:var(--font-mono);font-size:12px;border-radius:2px;">→</a>
+        </div>
+
+      </div><!-- /shop-main -->
+    </div><!-- /shop-layout -->
+  </div><!-- /container -->
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="logo">VOID<span>_</span>MKT</p>
+          <p>來自台灣的獨立潮流選品店，精選全球街頭品牌與自家設計。每一件單品都經過嚴選，只給懂的人。</p>
+        </div>
+        <div class="footer__col">
+          <h4>選購</h4>
+          <ul>
+            <li><a href="tops.html">上衣與外套</a></li>
+            <li><a href="bottoms.html">褲款與配件</a></li>
+            <li><a href="#">新品到貨</a></li>
+            <li><a href="#">折扣商品</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>關於我們</h4>
+          <ul>
+            <li><a href="#">品牌故事</a></li>
+            <li><a href="#">聯名合作</a></li>
+            <li><a href="#">門市資訊</a></li>
+            <li><a href="#">招募夥伴</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>服務支援</h4>
+          <ul>
+            <li><a href="faq.html">常見問題</a></li>
+            <li><a href="faq.html">退換貨政策</a></li>
+            <li><a href="#">配送資訊</a></li>
+            <li><a href="#">聯絡我們</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 VOID MARKET. All rights reserved.</p>
+        <div class="footer__social">
+          <a href="#">IG</a>
+          <a href="#">FB</a>
+          <a href="#">LINE</a>
+          <a href="#">Threads</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-wrap -->
+</body>
+</html>

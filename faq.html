@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>常見問題 / FAQ — VOID MARKET</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* FAQ page specific */
+    .faq-page-hero {
+      background: var(--black);
+      border-bottom: 1px solid var(--deep);
+      padding: 48px 0 0;
+    }
+
+    .faq-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+
+    .faq-hero-left { padding-bottom: 40px; }
+
+    .faq-hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      align-self: stretch;
+    }
+
+    .faq-quick-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: var(--deep);
+      border-left: 2px solid transparent;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--silver);
+      transition: all .2s;
+      cursor: pointer;
+    }
+    .faq-quick-link:hover {
+      border-left-color: var(--acid);
+      color: var(--white);
+      background: rgba(202,255,0,0.04);
+    }
+    .faq-quick-link span {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--steel);
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      background: var(--deep);
+      border: 1px solid var(--mid);
+      padding: 36px;
+      text-align: center;
+      margin-top: 48px;
+      border-radius: var(--radius);
+    }
+
+    .contact-cta h3 {
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .contact-cta p {
+      font-size: 13px;
+      color: var(--silver);
+      margin-bottom: 24px;
+    }
+
+    .contact-cta .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      transition: all .2s;
+      cursor: pointer;
+    }
+
+    .contact-btn--primary {
+      background: var(--acid);
+      color: var(--black);
+      border: 2px solid var(--acid);
+    }
+    .contact-btn--primary:hover { background: transparent; color: var(--acid); }
+
+    .contact-btn--ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--mid);
+    }
+    .contact-btn--ghost:hover { border-color: var(--white); }
+
+    /* Return process steps */
+    .return-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin: 24px 0;
+    }
+
+    .return-step {
+      background: var(--deep);
+      padding: 20px;
+    }
+
+    .return-step__num {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--acid);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .return-step__title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .return-step__desc {
+      font-size: 12px;
+      color: var(--silver);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .faq-hero-inner { grid-template-columns: 1fr; }
+      .return-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .return-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announce-bar">
+  <p>有問題找不到答案？<span>·</span> LINE 官方帳號 24 小時客服 <span>·</span> @voidmarket</p>
+</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">VOID<span>_</span>MKT</a>
+    <div class="nav__links">
+      <a href="index.html">首頁</a>
+      <a href="tops.html">上衣 / 外套</a>
+      <a href="bottoms.html">褲款 / 配件</a>
+      <a href="detail.html">商品詳情</a>
+      <a href="faq.html" class="active">FAQ</a>
+    </div>
+    <div class="nav__actions">
+      <button class="nav__btn nav__btn--ghost">搜尋</button>
+      <button class="nav__btn nav__btn--cart">購物車 <span class="cart-count">3</span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- PAGE HERO -->
+  <div class="faq-page-hero">
+    <div class="container">
+      <div class="faq-hero-inner">
+        <div class="faq-hero-left">
+          <div class="breadcrumb">
+            <a href="index.html">首頁</a>
+            <span>/</span>
+            <span class="current">常見問題</span>
+          </div>
+          <p class="page-hero__eyebrow" style="margin-top:16px;">// Support — FAQ & Returns</p>
+          <h1 class="page-hero__title">常見<br>問題</h1>
+          <p class="page-hero__sub" style="margin-top:12px;">找不到你要的答案？我們 24 小時 LINE 客服隨時待命。</p>
+        </div>
+        <div class="faq-hero-right">
+          <a href="#shipping" class="faq-quick-link">配送與物流 <span>→</span></a>
+          <a href="#returns" class="faq-quick-link">退換貨政策 <span>→</span></a>
+          <a href="#payment" class="faq-quick-link">付款與折扣 <span>→</span></a>
+          <a href="#products" class="faq-quick-link">商品與庫存 <span>→</span></a>
+          <a href="#account" class="faq-quick-link">帳號與會員 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ CONTENT -->
+  <div class="container">
+    <div class="faq-wrap">
+
+      <!-- SHIPPING -->
+      <div class="faq-category" id="shipping">
+        <p class="faq-category__title">// 01 — 配送與物流</p>
+
+        <details open>
+          <summary>
+            配送需要多久時間？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>台灣本島訂單一般在付款後 <strong style="color:var(--white)">1–2 個工作天</strong>內出貨，宅配約需 1–3 天送達。若使用超商取貨，到店通知簡訊約在 2–4 天內寄出。</p>
+            <p>離島（澎湖、金門、馬祖）需額外 1–2 個工作天，部分偏遠地區可能稍有延遲。下單時請確認收件地址正確。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            國際配送是否可以寄到海外？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>目前 VOID MARKET 支援寄送至以下地區：台灣、香港、澳門、新加坡、馬來西亞、日本。其他地區暫不支援，敬請期待。</p>
+            <p>國際配送費用依目的地計算，結帳時會顯示運費明細，約 NT$300–600 不等，全程提供追蹤號碼。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            我的訂單可以更改地址嗎？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>若訂單尚未出貨，請在下單後 <strong style="color:var(--white)">2 小時內</strong>聯繫客服申請地址修改。一旦已出貨，恕無法更改，需待包裹退回後重新安排。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            如何追蹤我的訂單？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>出貨後將以簡訊及 Email 傳送追蹤號碼，可至黑貓宅急便或超商官網查詢。也可登入會員中心，在「我的訂單」查看即時狀態。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- RETURNS -->
+      <div class="faq-category" id="returns">
+        <p class="faq-category__title">// 02 — 退換貨政策</p>
+
+        <details>
+          <summary>
+            退換貨的流程是什麼？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <div class="return-steps">
+              <div class="return-step">
+                <div class="return-step__num">01</div>
+                <div class="return-step__title">提出申請</div>
+                <div class="return-step__desc">收到商品後 14 天內，至會員中心或聯繫客服提出申請</div>
+              </div>
+              <div class="return-step">
+                <div class="return-step__num">02</div>
+                <div class="return-step__title">包裝寄回</div>
+                <div class="return-step__desc">使用原包裝或同等保護方式，附上退貨單</div>
+              </div>
+              <div class="return-step">
+                <div class="return-step__num">03</div>
+                <div class="return-step__title">審核確認</div>
+                <div class="return-step__desc">收件後 3 個工作天內完成品質確認</div>
+              </div>
+              <div class="return-step">
+                <div class="return-step__num">04</div>
+                <div class="return-step__title">退款完成</div>
+                <div class="return-step__desc">審核通過後 5–10 個工作天內退款至原付款帳戶</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            哪些情況可以退換貨？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>以下情況可申請退換貨：</p>
+            <ul>
+              <li>收到商品有瑕疵或損壞</li>
+              <li>收到商品與訂單不符（顏色、款式、尺寸）</li>
+              <li>尺寸不合（商品須未穿用、保持原狀、吊牌完整）</li>
+            </ul>
+            <p style="margin-top:12px;">以下情況<strong style="color:var(--burn)">恕不受理</strong>退換貨：</p>
+            <ul>
+              <li>商品已穿用、洗滌或有明顯使用痕跡</li>
+              <li>吊牌已剪除或包裝已損毀</li>
+              <li>特賣、清倉或限量商品（商品頁面會明確標示）</li>
+              <li>超過 14 天申請期限</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            換貨需要運費嗎？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>若為<strong style="color:var(--white)">商品瑕疵或出貨錯誤</strong>，來回運費由 VOID MARKET 全額負擔。</p>
+            <p>若為<strong style="color:var(--white)">尺寸不合或個人因素</strong>，退貨運費由顧客自行負擔（約 NT$60–100），換貨的再次寄送費用則由我們支付。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="faq-category" id="payment">
+        <p class="faq-category__title">// 03 — 付款與折扣</p>
+
+        <details>
+          <summary>
+            支援哪些付款方式？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>目前支援以下付款方式：</p>
+            <ul>
+              <li>信用卡 / 金融卡（Visa、Mastercard、JCB）</li>
+              <li>LINE Pay / Apple Pay / Google Pay</li>
+              <li>超商代碼繳費（7-11、全家、萊爾富、OK）</li>
+              <li>ATM 轉帳（限 48 小時內完成付款）</li>
+              <li>貨到付款（限宅配，手續費 NT$30）</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            折扣碼如何使用？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>在結帳頁面下方找到「折扣碼 / Promo Code」欄位，輸入後點擊「套用」即可。每張訂單限用一組折扣碼，且無法與其他優惠同時使用。</p>
+            <p>折扣碼區分大小寫，請確認輸入正確。如遇無效或逾期問題，請聯繫客服。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            如何獲得會員積分？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>消費每 NT$1 累積 1 點，100 點可折抵 NT$10 使用。會員等級分為 Regular、Core、Elite 三級，消費越多解鎖更多專屬福利，包含：</p>
+            <ul>
+              <li>Core（年消費 NT$10,000）：新品提前 24H 搶購</li>
+              <li>Elite（年消費 NT$30,000）：免運費、專屬客服、聯名優先名單</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="faq-category" id="products">
+        <p class="faq-category__title">// 04 — 商品與庫存</p>
+
+        <details>
+          <summary>
+            如何確認商品正品？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>VOID MARKET 所有商品均直接向品牌原廠或授權代理商採購，並提供 100% 正品保證。每件商品附有 VOID MARKET 正品雷射防偽貼紙及品牌原廠吊牌。</p>
+            <p>若對商品正品性有任何疑慮，歡迎聯繫我們，我們將提供完整的進貨證明。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            商品售完後還會補貨嗎？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>部分品項為常規款，會持續補貨；限量商品（標有「Limited Stock」）售完即止，不會補貨。</p>
+            <p>可在商品頁面點擊「到貨通知」輸入 Email，庫存補回時我們將第一時間通知你。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            尺寸怎麼選？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>每件商品頁面均附有完整尺寸對照表，建議量取自身肩寬、胸圍、衣長後對照選購。VOID MARKET 的商品多為 Oversized 版型，若偏好合身感可選擇小一號。</p>
+            <p>不確定的話，歡迎 LINE 客服提供身高體重，我們有專業穿搭顧問協助推薦。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ACCOUNT -->
+      <div class="faq-category" id="account">
+        <p class="faq-category__title">// 05 — 帳號與會員</p>
+
+        <details>
+          <summary>
+            忘記密碼怎麼辦？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>在登入頁面點擊「忘記密碼」，輸入註冊 Email 後，系統將寄出重設連結，連結有效期限為 30 分鐘。若未收到信件，請確認垃圾郵件匣，或聯繫客服協助。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            如何刪除帳號？
+            <span class="summary-icon"><span class="plus"></span></span>
+          </summary>
+          <div class="faq-body">
+            <p>可至會員設定頁面申請帳號刪除，或聯繫客服處理。刪除後所有個人資料（包含訂單紀錄、積分）將於 30 個工作天內完全移除，此操作<strong style="color:var(--burn)">無法復原</strong>。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- CONTACT CTA -->
+      <div class="contact-cta">
+        <h3>還有其他問題？</h3>
+        <p>我們的客服團隊在這裡，隨時準備好幫助你。</p>
+        <div class="cta-row">
+          <a href="#" class="contact-btn contact-btn--primary">LINE 客服 →</a>
+          <a href="#" class="contact-btn contact-btn--ghost">發送 Email</a>
+          <a href="#" class="contact-btn contact-btn--ghost">Instagram DM</a>
+        </div>
+      </div>
+
+    </div><!-- /faq-wrap -->
+  </div><!-- /container -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="logo">VOID<span>_</span>MKT</p>
+          <p>來自台灣的獨立潮流選品店，精選全球街頭品牌與自家設計。每一件單品都經過嚴選，只給懂的人。</p>
+        </div>
+        <div class="footer__col"><h4>選購</h4><ul><li><a href="tops.html">上衣與外套</a></li><li><a href="bottoms.html">褲款與配件</a></li><li><a href="#">新品到貨</a></li><li><a href="#">折扣商品</a></li></ul></div>
+        <div class="footer__col"><h4>關於我們</h4><ul><li><a href="#">品牌故事</a></li><li><a href="#">聯名合作</a></li><li><a href="#">門市資訊</a></li><li><a href="#">招募夥伴</a></li></ul></div>
+        <div class="footer__col"><h4>服務支援</h4><ul><li><a href="faq.html">常見問題</a></li><li><a href="faq.html">退換貨政策</a></li><li><a href="#">配送資訊</a></li><li><a href="#">聯絡我們</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 VOID MARKET. All rights reserved.</p>
+        <div class="footer__social"><a href="#">IG</a><a href="#">FB</a><a href="#">LINE</a><a href="#">Threads</a></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
